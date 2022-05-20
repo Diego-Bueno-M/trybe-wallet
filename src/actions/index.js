@@ -24,6 +24,5 @@ export const addExpenseThunk = (state) => async (dispatch) => {
   const apiData = await fetch('https://economia.awesomeapi.com.br/json/all');
   const data = await apiData.json();
   const dataToAction = { ...state, exchangeRates: { ...data } };
-  console.log(dataToAction);
   dispatch(addExpense(dataToAction));
 };
