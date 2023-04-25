@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEmail } from '../actions';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -45,29 +46,35 @@ class Login extends React.Component {
   render() {
     const { emailInput, passwordInput } = this.state;
     return (
-      <section>
-        <input
-          type="email"
-          placeholder="Email"
-          data-testid="email-input"
-          name="emailInput"
-          onChange={ this.handleChange }
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          data-testid="password-input"
-          name="passwordInput"
-          onChange={ this.handleChange }
-        />
-        <button
-          type="button"
-          disabled={ this.emailValidation(emailInput)
-            || this.passwordValidation(passwordInput) }
-          onClick={ this.saveEmail }
-        >
-          Entrar
-        </button>
+      <section id="login-section">
+        <h1>TrybeWallet</h1>
+        <div id="login-div">
+          <input
+            className="login-input"
+            type="email"
+            placeholder="Email"
+            data-testid="email-input"
+            name="emailInput"
+            onChange={ this.handleChange }
+          />
+          <input
+            className="login-input"
+            type="password"
+            placeholder="Password"
+            data-testid="password-input"
+            name="passwordInput"
+            onChange={ this.handleChange }
+          />
+          <button
+            id="login-button"
+            type="button"
+            disabled={ this.emailValidation(emailInput)
+              || this.passwordValidation(passwordInput) }
+            onClick={ this.saveEmail }
+          >
+            Entrar
+          </button>
+        </div>
       </section>
     );
   }
