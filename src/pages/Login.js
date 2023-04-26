@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEmail } from '../actions';
+import money from '../images/money.webp';
 import '../styles/Login.css';
 
 class Login extends React.Component {
@@ -49,6 +50,7 @@ class Login extends React.Component {
       <div id="login-container">
         <section id="login-section">
           <h1>TrybeWallet</h1>
+          <img id="money-img" alt="money" src={ money } />
           <div id="login-div">
             <input
               className="login-input"

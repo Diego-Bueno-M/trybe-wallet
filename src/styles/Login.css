@@ -28,7 +28,7 @@
 #login-button {
   width: 75%;
   height: 40px;
-  background-color: rgb(18, 170, 18);
+  background-color: rgb(6 158 111);
   border-radius: 5px;
   color: white;
 }
@@ -46,3 +46,6 @@
   background-color: whitesmoke;
 }
 
+#money-img {
+  width: 40%;
+}
