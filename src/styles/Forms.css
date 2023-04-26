@@ -1,0 +1,30 @@
+#forms-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  background-color: rgb(45 104 124);
+}
+
+#add-button {
+  height: 40px;
+  width: 150px;
+  background-color: rgb(6 158 111);
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+
+.forms-titles {
+  color: white
+}
+
+.forms-inputs {
+  margin-left: 5px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+#forms-value {
+  width: 70px;
+}

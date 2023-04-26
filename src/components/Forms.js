@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCoinsThunk, addExpenseThunk } from '../actions/index';
+import '../styles/Forms.css';
 
 class Forms extends React.Component {
   constructor() {
@@ -43,23 +44,29 @@ class Forms extends React.Component {
     const { value } = this.state;
     return (
       <div>
-        <forms>
-          <input
-            type="text"
-            data-testid="value-input"
-            name="value"
-            value={ value }
-            onChange={ this.handleInputChange }
-          />
-          <input
-            type="text"
-            name="description"
-            data-testid="description-input"
-            onChange={ this.handleInputChange }
-          />
-          <label htmlFor="currency">
+        <forms id="forms-container">
+          <label
+            htmlFor="value"
+            className="forms-titles"
+          >
+            Valor:
+            <input
+              className="forms-inputs"
+              id="forms-value"
+              type="text"
+              data-testid="value-input"
+              name="value"
+              value={ value }
+              onChange={ this.handleInputChange }
+            />
+          </label>
+          <label
+            htmlFor="currency"
+            className="forms-titles"
+          >
             Moeda:
             <select
+              className="forms-inputs"
               id="currency"
               name="currency"
               onChange={ this.handleInputChange }
@@ -73,29 +80,61 @@ class Forms extends React.Component {
                 </option>))}
             </select>
           </label>
-          <select
-            name="method"
-            data-testid="method-input"
-            onChange={ this.handleInputChange }
+          <label
+            htmlFor="method"
+            className="forms-titles"
           >
-            <option value="Dinheiro">Dinheiro</option>
-            <option value="Cartão de débito">Cartão de débito</option>
-            <option value="Cartão de crédito">Cartão de crédito</option>
-          </select>
-          <select name="tag" data-testid="tag-input" onChange={ this.handleInputChange }>
-            <option value="Alimentação">Alimentação</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Saúde">Saúde</option>
-          </select>
+            Método de pagamento:
+            <select
+              className="forms-inputs"
+              name="method"
+              data-testid="method-input"
+              onChange={ this.handleInputChange }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+            </select>
+          </label>
+          <label
+            htmlFor="tag"
+            className="forms-titles"
+          >
+            Tag:
+            <select
+              className="forms-inputs"
+              name="tag"
+              data-testid="tag-input"
+              onChange={ this.handleInputChange }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
+          <label
+            htmlFor="description"
+            className="forms-titles"
+          >
+            Descrição:
+            <input
+              className="forms-inputs"
+              type="text"
+              name="description"
+              data-testid="description-input"
+              onChange={ this.handleInputChange }
+            />
+          </label>
+          <button
+            id="add-button"
+            type="button"
+            onClick={ this.handleClick }
+          >
+            Adicionar despesa
+          </button>
         </forms>
-        <button
-          type="button"
-          onClick={ this.handleClick }
-        >
-          Adicionar despesa
-        </button>
       </div>
     );
   }
