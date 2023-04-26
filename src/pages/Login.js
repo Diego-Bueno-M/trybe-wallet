@@ -46,36 +46,38 @@ class Login extends React.Component {
   render() {
     const { emailInput, passwordInput } = this.state;
     return (
-      <section id="login-section">
-        <h1>TrybeWallet</h1>
-        <div id="login-div">
-          <input
-            className="login-input"
-            type="email"
-            placeholder="Email"
-            data-testid="email-input"
-            name="emailInput"
-            onChange={ this.handleChange }
-          />
-          <input
-            className="login-input"
-            type="password"
-            placeholder="Password"
-            data-testid="password-input"
-            name="passwordInput"
-            onChange={ this.handleChange }
-          />
-          <button
-            id="login-button"
-            type="button"
-            disabled={ this.emailValidation(emailInput)
-              || this.passwordValidation(passwordInput) }
-            onClick={ this.saveEmail }
-          >
-            Entrar
-          </button>
-        </div>
-      </section>
+      <div id="login-container">
+        <section id="login-section">
+          <h1>TrybeWallet</h1>
+          <div id="login-div">
+            <input
+              className="login-input"
+              type="email"
+              placeholder="Email"
+              data-testid="email-input"
+              name="emailInput"
+              onChange={ this.handleChange }
+            />
+            <input
+              className="login-input"
+              type="password"
+              placeholder="Password"
+              data-testid="password-input"
+              name="passwordInput"
+              onChange={ this.handleChange }
+            />
+            <button
+              id="login-button"
+              type="button"
+              disabled={ this.emailValidation(emailInput)
+                || this.passwordValidation(passwordInput) }
+              onClick={ this.saveEmail }
+            >
+              Entrar
+            </button>
+          </div>
+        </section>
+      </div>
     );
   }
 }

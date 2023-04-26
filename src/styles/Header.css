@@ -1,0 +1,19 @@
+#wallet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(14, 79, 14);
+  color: white;
+}
+
+#total-container {
+  display: flex;
+}
+
+#email-container {
+  display: flex;
+}
+
+.field-title {
+  margin-right: 5px;
+}
