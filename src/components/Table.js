@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../styles/Table.css';
 
 class Table extends React.Component {
   getCurrency(exchangeRates, currency) {
@@ -10,7 +11,9 @@ class Table extends React.Component {
   render() {
     const { expenses } = this.props;
     return (
-      <table>
+      <table
+        id="table"
+      >
         <tr>
           <th>Descrição</th>
           <th>Tag</th>
@@ -36,8 +39,22 @@ class Table extends React.Component {
               </td>
               <td>{ exchangeRates[currency].name }</td>
               <td>Real</td>
-              <td><button type="button">Adicionar</button></td>
-              <td><button type="button">Excluir</button></td>
+              <td
+                id="td-button"
+              >
+                <button
+                  id="edit-button"
+                  type="button"
+                >
+                  Editar
+                </button>
+                <button
+                  id="delete-button"
+                  type="button"
+                >
+                  Excluir
+                </button>
+              </td>
             </tr>
           ))}
       </table>
