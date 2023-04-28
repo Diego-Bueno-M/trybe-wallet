@@ -20,6 +20,7 @@ th {
 }
 
 button {
+  background: red;
   border: none;
   border-radius: 6px;
   color: white;
@@ -35,13 +36,3 @@ button {
   display: flex;
   justify-content: space-around;
 }
-
-#delete-button {
-  background: red;
-}
-
-#edit-button {
-  background: blue;
-}
-
-

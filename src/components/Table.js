@@ -24,7 +24,7 @@ class Table extends React.Component {
           <th>Câmbio utilizado</th>
           <th>Valor convertido</th>
           <th>Moeda de conversão</th>
-          <th>Editar/Excluir</th>
+          <th>Excluir</th>
         </tr>
         { expenses
           .map((expense) => (
@@ -45,12 +45,6 @@ class Table extends React.Component {
               <td
                 id="td-button"
               >
-                <button
-                  id="edit-button"
-                  type="button"
-                >
-                  Editar
-                </button>
                 <button
                   id="delete-button"
                   type="button"
