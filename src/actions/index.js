@@ -1,6 +1,7 @@
 export const ADD_EMAIL = 'ADD_EMAIL';
 export const FECTH_COINS = 'FETCH_COINS';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const addEmail = (email) => ({ type: ADD_EMAIL, payload: email });
 
@@ -17,6 +18,11 @@ export const fetchCoinsThunk = () => async (dispatch) => {
 
 export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
+  payload: expense,
+});
+
+export const removeExpense = (expense) => ({
+  type: REMOVE_EXPENSE,
   payload: expense,
 });
 

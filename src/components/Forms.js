@@ -34,8 +34,6 @@ class Forms extends React.Component {
     this.setState({
       value: '',
       description: '',
-      currency: 'USD',
-      method: 'Dinheiro',
     });
   }
 

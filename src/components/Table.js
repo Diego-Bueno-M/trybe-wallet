@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { removeExpense } from '../actions';
 import '../styles/Table.css';
 
 class Table extends React.Component {
@@ -9,7 +10,7 @@ class Table extends React.Component {
   }
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, deleteExpense } = this.props;
     return (
       <table
         id="table"
@@ -26,18 +27,20 @@ class Table extends React.Component {
           <th>Editar/Excluir</th>
         </tr>
         { expenses
-          .map(({ currency, description, id, method, tag, value, exchangeRates }) => (
-            <tr key={ id }>
-              <td>{ description }</td>
-              <td>{ tag }</td>
-              <td>{ method }</td>
-              <td>{ Number(value).toFixed(2) }</td>
-              <td>{ this.getCurrency(exchangeRates, currency).toFixed(2) }</td>
+          .map((expense) => (
+            <tr key={ expense.id }>
+              <td>{ expense.description }</td>
+              <td>{ expense.tag }</td>
+              <td>{ expense.method }</td>
+              <td>{ Number(expense.value).toFixed(2) }</td>
               <td>
-                { (this.getCurrency(exchangeRates, currency)
-                * Number(value)).toFixed(2) }
+                { this.getCurrency(expense.exchangeRates, expense.currency).toFixed(2) }
               </td>
-              <td>{ exchangeRates[currency].name }</td>
+              <td>
+                { (this.getCurrency(expense.exchangeRates, expense.currency)
+                * Number(expense.value)).toFixed(2) }
+              </td>
+              <td>{ expense.exchangeRates[expense.currency].name }</td>
               <td>Real</td>
               <td
                 id="td-button"
@@ -51,6 +54,7 @@ class Table extends React.Component {
                 <button
                   id="delete-button"
                   type="button"
+                  onClick={ () => deleteExpense(expense) }
                 >
                   Excluir
                 </button>
@@ -64,10 +68,17 @@ class Table extends React.Component {
 
 Table.propTypes = {
   expenses: PropTypes.arrayOf.isRequired,
+  deleteExpense: PropTypes.arrayOf.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  deleteExpense: (state) => {
+    dispatch(removeExpense(state));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
