@@ -9,6 +9,11 @@ class Header extends React.Component {
     if (expenses.length === 0) {
       return 0;
     }
+    expenses.forEach((expense) => {
+      if (!expense.currency) expense.currency = 'USD';
+      if (!expense.method) expense.method = 'Dinheiro';
+      if (!expense.tag)expense.tag = 'Alimentação';
+    });
     const valueWithCurrency = expenses.map(({ value, currency, exchangeRates }) => (
       Number(value) * Number(exchangeRates[currency].ask)));
     const total = valueWithCurrency.reduce((accumulator, curr) => accumulator + curr);
